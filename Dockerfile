@@ -16,5 +16,7 @@ RUN ALPINE_GLIBC_VERSION="latest" && \
     tar -xzf grafana-*linux-x64.tar.gz && \
     rm -rf /tmp/* /var/cache/apk/* /opt/*tar.gz && \
     mv grafana-* grafana
+    
+EXPOSE 3000
 
 CMD /opt/grafana/bin/grafana-server --homepath=/opt/grafana cfg:default.paths.data=/opt/grafana/data cfg:default.paths.logs=/var/log/grafana cfg:default.paths.plugins=/opt/grafana/public/app/features/plugins web
